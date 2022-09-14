@@ -16,13 +16,13 @@ Step-by-step walkthrough of how I arrived at the solution from the problem state
 6. To tackle this, I decided to create the variable avg_texts_per_week. So basically, I multiplied the total_texts variable with the count_of_active_weeks variable and then divided it by the total range of weeks in the dataframe which was 23. This weighted function ensured that the person having a greater number of texts but was active only for 1 week was given a lesser score than a person who has sent a few texts but consistantly over a longer time frame.
 7. After this was done, I normalised all the values using the MinMax Scaler concept on the relevant cloumns.
 8. Now this was the important part which would generate the engagement score. It had to be a weighted function for the fators mentioned above (excpet user_id,total_texts and count_of_active_weeks). So, the final variables remaining along with the weights which I decided to give them were-
-  * a. reaction_count, 0.1
-  * b. mentions, 0.2
-  * c. avg_texts_per_week, 0.25
-  * d. count_of_replies, 0.25
-  * e. forwarded, 0.2
+  * a. reaction_count, *0.1*
+  * b. mentions, *0.2*
+  * c. avg_texts_per_week, *0.25*
+  * d. count_of_replies, *0.25*
+  * e. forwarded, *0.2*
 9. While coming up with parameters to measure community engagement, it should be kept in mind that those factors which provide a scope for further engagement between other users should be given a greater importance. Therefore, least weights were given to reactions because they leave no further scope of engagement as compared to mentions and forwards.
-10. mentioning another user might show that the one who has messaged is pretty confident and a coherent memeber of the community. Usually, the people who are not involved in a community rarely mentions other in the messages. 
-11. forwards create greater opportunities for engaging the community. Consider Twittter for example. Retweets are considered to be more important than likes. So following this principle, forwarded (retweets) should rank higher than reactions (likes)
-12. The very base of an engaging conversation is when there is involvement from both sides. This is why replies are given a higher weightage. Replies help in keeping the ocnversation going. Like in Reddit, there are long threads which get higher user engagement.
+10. Mentioning another user might show that the one who has messaged is pretty confident and a coherent memeber of the community. Usually, the people who are not involved in a community rarely mentions other in the messages. 
+11. Forwards create greater opportunities for engaging the community. Consider **Twitter** for example. Retweets are considered to be more important than likes. So following this principle, forwarded (retweets) should rank higher than reactions (likes)
+12. The very base of an engaging conversation is when there is involvement from both sides. This is why replies are given a higher weightage. Replies help in keeping the conversation going. Like in Reddit, there are long threads which get higher user engagement.
 13. Finally, the  avg_texts_per_week measures the activeness of user in a community. Hence this has a high weightage, equal to the weight of replies.
